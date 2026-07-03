@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Privacy policy for the Meridian Code LLC website.">
+<title>Privacy Policy — Meridian Code</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cg fill='none' stroke='%232C5BE3'%3E%3Cpath d='M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94' stroke-width='8' stroke-linecap='round' transform='translate(120,0) scale(-1,1)'/%3E%3Cpolyline points='38,74 38,26 60,58 82,26 82,74' stroke-width='10'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+  :root {
+    --ground: #F8F9FC;
+    --surface: #FFFFFF;
+    --ink: #16233F;
+    --ink-soft: #4B5872;
+    --ink-faint: #7A86A0;
+    --accent: #2C5BE3;
+    --accent-hover: #1F49C4;
+    --line: #DCE1EC;
+    --line-strong: #B9C2D6;
+
+    --font-display: "Century Gothic", CenturyGothic, "Avenir Next", Futura, Corbel, "Segoe UI", sans-serif;
+    --font-body: "Segoe UI", -apple-system, BlinkMacSystemFont, Seravek, "Helvetica Neue", sans-serif;
+    --font-mono: "Cascadia Code", ui-monospace, "SF Mono", Consolas, Menlo, monospace;
+
+    --maxw: 1100px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #0B1322;
+      --surface: #121C31;
+      --ink: #E7ECF7;
+      --ink-soft: #A5B1CB;
+      --ink-faint: #6F7D9C;
+      --accent: #7C9EFF;
+      --accent-hover: #9CB5FF;
+      --line: #243250;
+      --line-strong: #3A4A6E;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--accent-hover); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .container {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding-left: clamp(20px, 4vw, 48px);
+    padding-right: clamp(20px, 4vw, 48px);
+  }
+
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--ground) 86%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+
+  .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); }
+  .brand:hover { color: var(--ink); }
+  .brand svg { display: block; }
+
+  .wordmark { font-family: var(--font-display); font-size: 19px; font-weight: 500; white-space: nowrap; }
+  .wordmark .code { color: var(--accent); }
+
+  .nav-back { font-size: 15px; color: var(--ink-soft); }
+  .nav-back:hover { color: var(--ink); }
+
+  main { padding: clamp(48px, 8vh, 88px) 0 clamp(64px, 10vh, 110px); }
+
+  .doc { max-width: 46em; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.12;
+    text-wrap: balance;
+    margin: 14px 0 6px;
+  }
+
+  .effective {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-faint);
+    margin: 0 0 40px;
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    font-weight: 600;
+    margin: 44px 0 12px;
+    text-wrap: balance;
+  }
+
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  li { color: var(--ink-soft); margin-bottom: 8px; }
+  ul { margin: 0 0 16px; padding-left: 1.3em; }
+  strong { color: var(--ink); font-weight: 600; }
+
+  address {
+    font-style: normal;
+    color: var(--ink-soft);
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+    margin: 0 0 16px;
+  }
+
+  footer.site { border-top: 1px solid var(--line); padding: 28px 0 36px; }
+
+  .foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+
+  .foot .brand-min { display: inline-flex; align-items: center; gap: 9px; color: var(--ink-soft); }
+  .foot-links { display: inline-flex; gap: 18px; }
+  .foot-links a { color: var(--ink-faint); }
+  .foot-links a:hover { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container nav">
+    <a class="brand" href="/" aria-label="Meridian Code — home">
+      <svg width="34" height="28" viewBox="0 0 120 100" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94" stroke-width="5.5" stroke-linecap="round" transform="translate(120,0) scale(-1,1)"/>
+        <polyline points="38,74 38,26 60,58 82,26 82,74" stroke-width="7"/>
+      </svg>
+      <span class="wordmark">meridian <span class="code">code</span></span>
+    </a>
+    <nav aria-label="Site">
+      <a class="nav-back" href="/">← Back to site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <article class="doc">
+      <span class="eyebrow">Legal</span>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective July 3, 2026</p>
+
+      <p>This policy describes how Meridian Code LLC (&ldquo;Meridian Code,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;) handles information in connection with the website at meridiancode.net (the &ldquo;Site&rdquo;). The short version: this is a simple informational website. We don't run accounts, forms, cookies, or analytics, and we collect as little as the internet allows.</p>
+
+      <h2>Who we are</h2>
+      <address>
+        Meridian Code LLC<br>
+        <a href="mailto:contact@meridiancode.net">contact@meridiancode.net</a>
+      </address>
+
+      <h2>Information we collect through the Site</h2>
+      <p><strong>We do not collect personal information through the Site itself.</strong> The Site contains no contact forms, account systems, cookies set by us, advertising, or analytics tools.</p>
+      <p>Like nearly every website, the Site is delivered by a hosting provider whose servers automatically process technical data — such as your IP address, browser type, and pages requested — to serve the pages and keep the service secure. Our Site is hosted by GitHub Pages (GitHub, Inc.); that processing is described in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" rel="noopener">GitHub Privacy Statement</a>. Domain and email infrastructure is provided by Cloudflare, Inc.</p>
+
+      <h2>Information you send us by email</h2>
+      <p>If you email us, we receive your email address, name, and whatever you include in your message. We use this information to respond to you and, if we work together, to conduct that business relationship. Email to our domain is relayed by Cloudflare Email Routing and stored in Google's Gmail service, which act as processors on our behalf.</p>
+      <p>We do not sell your information, share it with third parties for their marketing, or add you to mailing lists you didn't ask for.</p>
+
+      <h2>How long we keep correspondence</h2>
+      <p>We keep business correspondence for as long as it is reasonably needed for the purpose it was sent — for example, for the duration of a client engagement and any period required for legal, accounting, or record-keeping obligations.</p>
+
+      <h2>Your choices and rights</h2>
+      <p>Depending on where you live, you may have rights to access, correct, or request deletion of personal information we hold about you. Because the only personal information we typically hold is email correspondence, the practical way to exercise these rights is to email us at <a href="mailto:contact@meridiancode.net">contact@meridiancode.net</a> and tell us what you'd like done. We'll respond within a reasonable time.</p>
+
+      <h2>Children</h2>
+      <p>The Site is a business-to-business website and is not directed at children under 13. We do not knowingly collect information from children.</p>
+
+      <h2>Changes to this policy</h2>
+      <p>If we change how the Site handles information — for example, by adding a contact form or analytics — we will update this policy and change the effective date above.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:contact@meridiancode.net">contact@meridiancode.net</a>.</p>
+    </article>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="container foot">
+    <span class="brand-min">
+      <svg width="22" height="18" viewBox="0 0 120 100" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94" stroke-width="6" stroke-linecap="round"/>
+        <path d="M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94" stroke-width="6" stroke-linecap="round" transform="translate(120,0) scale(-1,1)"/>
+        <polyline points="38,74 38,26 60,58 82,26 82,74" stroke-width="7.5"/>
+      </svg>
+      MERIDIAN CODE LLC
+    </span>
+    <span class="foot-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </span>
+    <span>© 2026 — GUIDED THE WHOLE WAY</span>
+  </div>
+</footer>
+
+</body>
+</html>
