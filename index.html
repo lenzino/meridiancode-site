@@ -3,56 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Meridian Code LLC — senior software development and consulting. Architecture, development, code review, maintenance, and technical support for companies that want experienced hands on their most important systems.">
-<title>Meridian Code — Senior Software Consultancy</title>
+<meta name="description" content="Meridian Code LLC — guided software development. Discovery, architecture, senior development, and long-term support: one accountable partner, waypoint by waypoint.">
+<title>Meridian Code — Guided Software Development</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Cg fill='none' stroke='%232C5BE3'%3E%3Cpath d='M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94' stroke-width='8' stroke-linecap='round'/%3E%3Cpath d='M 30,6 C 16,6 21,24 19,38 C 18,48 10,50 7,50 C 10,50 18,52 19,62 C 21,76 16,94 30,94' stroke-width='8' stroke-linecap='round' transform='translate(120,0) scale(-1,1)'/%3E%3Cpolyline points='38,74 38,26 60,58 82,26 82,74' stroke-width='10'/%3E%3C/g%3E%3C/svg%3E">
 <style>
-  /* ---------- Tokens ---------- */
+  /* ---------- Tokens (from the {M} logo: navy ink + cobalt accent) ---------- */
   :root {
+    --ground: #F8F9FC;
+    --surface: #FFFFFF;
     --ink: #16233F;
     --ink-soft: #4B5872;
     --ink-faint: #7A86A0;
+    --navy: #16233F;
     --accent: #2C5BE3;
     --accent-hover: #1F49C4;
-    --ground: #F8F9FC;
-    --surface: #FFFFFF;
+    --contour: #D3DAEA;
     --line: #DCE1EC;
     --line-strong: #B9C2D6;
-    --globe-line: rgba(22, 35, 63, 0.16);
-    --tick-ring: #2C5BE3;
+    --btn-bg: #16233F;
+    --btn-ink: #F8F9FC;
+    --btn-bg-hover: #0F1A31;
 
     --band-bg: #16233F;
     --band-ink: #EDF1FA;
     --band-soft: #9FAECB;
-    --band-line: rgba(237, 241, 250, 0.18);
+    --band-contour: rgba(237, 241, 250, 0.1);
     --band-accent: #7C9EFF;
 
-    --font-display: "Avenir Next", "Avenir", "Segoe UI Variable Display", "Segoe UI", "Helvetica Neue", Helvetica, sans-serif;
-    --font-body: "Seravek", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-    --font-mono: "Cascadia Code", ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    --font-display: "Century Gothic", CenturyGothic, "Avenir Next", Futura, Corbel, "Segoe UI", sans-serif;
+    --font-body: "Segoe UI", -apple-system, BlinkMacSystemFont, Seravek, "Helvetica Neue", sans-serif;
+    --font-mono: "Cascadia Code", ui-monospace, "SF Mono", Consolas, Menlo, monospace;
 
-    --rail-pad: clamp(28px, 5vw, 60px);
     --maxw: 1100px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
+      --ground: #0B1322;
+      --surface: #121C31;
       --ink: #E7ECF7;
       --ink-soft: #A5B1CB;
       --ink-faint: #6F7D9C;
+      --navy: #DFE7F8;
       --accent: #7C9EFF;
       --accent-hover: #9CB5FF;
-      --ground: #0B1322;
-      --surface: #121C31;
+      --contour: #243250;
       --line: #243250;
       --line-strong: #3A4A6E;
-      --globe-line: rgba(231, 236, 247, 0.14);
-      --tick-ring: #7C9EFF;
+      --btn-bg: #7C9EFF;
+      --btn-ink: #0B1322;
+      --btn-bg-hover: #9CB5FF;
 
       --band-bg: #121C31;
       --band-ink: #E7ECF7;
       --band-soft: #A5B1CB;
-      --band-line: rgba(231, 236, 247, 0.14);
+      --band-contour: rgba(231, 236, 247, 0.08);
       --band-accent: #7C9EFF;
     }
   }
@@ -85,6 +90,7 @@
 
   h1, h2, h3 {
     font-family: var(--font-display);
+    color: var(--navy);
     text-wrap: balance;
     margin: 0;
   }
@@ -98,56 +104,29 @@
     padding-right: clamp(20px, 4vw, 48px);
   }
 
-  /* Sections that hang off the meridian rail */
-  .railed {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    border-left: 1px solid var(--line);
-    padding-left: var(--rail-pad);
-    padding-right: clamp(20px, 4vw, 48px);
-  }
-
-  @media (max-width: 560px) {
-    .railed { border-left: none; padding-left: 20px; }
-  }
-
-  /* ---------- Eyebrow labels ---------- */
   .eyebrow {
-    position: relative;
     display: inline-flex;
     align-items: center;
+    gap: 10px;
     font-family: var(--font-mono);
     font-size: 12px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-faint);
   }
-
   .eyebrow::before {
     content: "";
-    position: absolute;
-    left: calc(-1 * var(--rail-pad) - 4.5px);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--ground);
-    border: 2px solid var(--tick-ring);
+    width: 22px;
+    height: 0;
+    border-top: 2px dotted var(--accent);
   }
-
-  @media (max-width: 560px) {
-    .eyebrow::before { display: none; }
-  }
-
-  .eyebrow .deg { color: var(--accent); margin-right: 0.9em; }
 
   /* ---------- Header ---------- */
   header.site {
     position: sticky;
     top: 0;
-    z-index: 20;
-    background: color-mix(in srgb, var(--ground) 86%, transparent);
+    z-index: 30;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
@@ -163,26 +142,26 @@
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 11px;
     color: var(--ink);
   }
   .brand:hover { color: var(--ink); }
-
   .brand svg { display: block; }
 
   .wordmark {
     font-family: var(--font-display);
     font-size: 19px;
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.04em;
     white-space: nowrap;
+    color: var(--ink);
   }
   .wordmark .code { color: var(--accent); }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(16px, 3vw, 32px);
+    gap: clamp(16px, 3vw, 30px);
     font-size: 15px;
   }
   .nav-links a { color: var(--ink-soft); }
@@ -194,44 +173,60 @@
     color: var(--accent) !important;
     border: 1px solid var(--line-strong);
     padding: 7px 14px;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: border-color 0.15s ease;
   }
   .nav-cta:hover { border-color: var(--accent); }
 
-  @media (max-width: 640px) {
+  @media (max-width: 660px) {
     .nav-links a:not(.nav-cta) { display: none; }
   }
 
   /* ---------- Hero ---------- */
   .hero {
-    padding-top: clamp(64px, 10vh, 120px);
-    padding-bottom: clamp(64px, 10vh, 110px);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-contours {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding-top: clamp(72px, 11vh, 132px);
+    padding-bottom: clamp(72px, 11vh, 128px);
     display: grid;
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-    gap: clamp(24px, 5vw, 64px);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+    gap: clamp(24px, 5vw, 56px);
     align-items: center;
   }
 
-  @media (max-width: 860px) {
-    .hero { grid-template-columns: 1fr; }
-    .hero-globe { order: -1; max-width: 320px; }
+  @media (max-width: 820px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-art { display: none; }
   }
 
   .hero h1 {
-    font-size: clamp(38px, 5.4vw, 62px);
-    font-weight: 600;
-    line-height: 1.06;
-    letter-spacing: -0.015em;
-    margin: 22px 0 24px;
+    font-size: clamp(38px, 5.2vw, 60px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    margin: 20px 0 22px;
   }
-  .hero h1 .fixed-point { color: var(--accent); }
+  .hero h1 .route-w { color: var(--accent); white-space: nowrap; }
 
   .hero .lede {
-    max-width: 34em;
+    max-width: 32em;
     font-size: clamp(17px, 1.6vw, 19px);
     color: var(--ink-soft);
-    margin-bottom: 40px;
+    margin-bottom: 38px;
   }
 
   .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
@@ -242,151 +237,238 @@
     gap: 10px;
     font-family: var(--font-display);
     font-size: 16px;
-    font-weight: 500;
-    padding: 13px 24px;
-    border-radius: 3px;
+    font-weight: 700;
+    padding: 13px 26px;
+    border-radius: 4px;
     border: 1px solid transparent;
     transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
-
-  .btn-primary { background: var(--accent); color: #FFFFFF; }
-  .btn-primary:hover { background: var(--accent-hover); color: #FFFFFF; }
-  @media (prefers-color-scheme: dark) {
-    .btn-primary, .btn-primary:hover { color: #0B1322; }
-  }
-
+  .btn-primary { background: var(--btn-bg); color: var(--btn-ink); }
+  .btn-primary:hover { background: var(--btn-bg-hover); color: var(--btn-ink); }
   .btn-ghost { border-color: var(--line-strong); color: var(--ink); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--ink); }
 
-  .hero-globe {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    max-width: 460px;
-    justify-self: end;
-  }
-  @media (max-width: 860px) { .hero-globe { justify-self: start; } }
+  .hero-art { position: relative; }
+  .hero-art svg { width: 100%; height: auto; display: block; overflow: visible; }
 
-  .hero-globe canvas { width: 100%; height: 100%; display: block; }
-
-  .globe-caption {
-    position: absolute;
-    left: 50%;
-    bottom: -6px;
-    transform: translateX(-50%);
+  .hero-wp-label {
     font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--ink-faint);
-    white-space: nowrap;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    fill: var(--ink-soft);
   }
 
-  /* ---------- Sections ---------- */
-  section.block { padding-top: clamp(64px, 9vh, 104px); padding-bottom: clamp(64px, 9vh, 104px); }
+  .hero-wp { opacity: 0; transform: scale(0.4); transform-box: fill-box; transform-origin: center; }
+  .hero-wp.on { opacity: 1; transform: scale(1); }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-wp { transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.4, 0.5, 1); }
+  }
+  .hero-wp-label { opacity: 0; }
+  .hero-wp.on + .hero-wp-label, g.on .hero-wp-label { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-wp-label { transition: opacity 0.5s ease 0.15s; }
+  }
 
-  .section-head { max-width: 38em; margin-bottom: clamp(36px, 5vh, 56px); }
+  /* ---------- Section scaffolding ---------- */
+  section.block { padding-top: clamp(72px, 10vh, 120px); padding-bottom: clamp(72px, 10vh, 120px); }
+
+  .section-head { max-width: 39em; margin-bottom: clamp(40px, 6vh, 64px); }
   .section-head h2 {
     font-size: clamp(28px, 3.4vw, 40px);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    line-height: 1.15;
-    margin: 18px 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.002em;
+    line-height: 1.14;
+    margin: 16px 0 14px;
   }
   .section-head p { color: var(--ink-soft); }
 
-  /* ---------- Services grid ---------- */
+  /* ---------- Route section ---------- */
+  #route { position: relative; }
+
+  #trail-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #trail-tip-ring { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  @media (prefers-reduced-motion: no-preference) {
+    #trail-tip-ring.pulsing { animation: tip-pulse 1.9s ease-out infinite; }
+    @keyframes tip-pulse {
+      0% { transform: scale(0.5); opacity: 0.7; }
+      70%, 100% { transform: scale(2.4); opacity: 0; }
+    }
+  }
+
+  .route-inner { position: relative; z-index: 2; }
+
+  .wp {
+    display: grid;
+    grid-template-columns: 132px minmax(0, 1fr);
+    gap: 0 clamp(16px, 3vw, 36px);
+    max-width: 860px;
+  }
+  .wp + .wp { margin-top: clamp(64px, 9vh, 110px); }
+
+  @media (max-width: 640px) {
+    .wp { grid-template-columns: 56px minmax(0, 1fr); }
+  }
+
+  .wp-col { position: relative; }
+
+  .wp-marker {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: var(--mx, 0px);
+    border-radius: 50%;
+    background: var(--ground);
+    border: 3px solid var(--accent);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    transition: background-color 0.35s ease, color 0.35s ease, transform 0.35s ease;
+  }
+  @media (max-width: 640px) {
+    .wp-marker { margin-left: 8px !important; }
+  }
+
+  .wp.reached .wp-marker {
+    background: var(--accent);
+    color: var(--ground);
+    transform: scale(1.08);
+  }
+
+  .wp-tag {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 9px 0 10px;
+    transition: color 0.35s ease;
+  }
+  .wp.reached .wp-tag { color: var(--accent); }
+
+  .wp-body h3 {
+    font-size: clamp(21px, 2.4vw, 27px);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .wp-body h3 .dim { color: var(--ink-faint); font-weight: 400; }
+
+  .wp-body p { color: var(--ink-soft); max-width: 36em; }
+
+  .wp-svc {
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+  }
+  .wp-svc b { color: var(--ink-soft); font-weight: 400; }
+
+  /* ---------- Services ---------- */
+  #services { border-top: 1px solid var(--line); }
+
   .svc-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
+    gap: clamp(14px, 1.8vw, 22px);
   }
   @media (max-width: 900px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 580px) { .svc-grid { grid-template-columns: 1fr; } }
 
   .svc {
     background: var(--surface);
-    padding: 30px 28px 34px;
-    transition: background-color 0.15s ease;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 26px 24px 28px;
+    transition: border-color 0.15s ease;
   }
-  .svc:hover { background: color-mix(in srgb, var(--accent) 5%, var(--surface)); }
+  .svc:hover { border-color: var(--line-strong); }
 
-  .svc svg { display: block; color: var(--accent); margin-bottom: 18px; }
+  .svc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .svc-top svg { display: block; color: var(--accent); }
 
-  .svc h3 {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 10px;
+  .svc-wp {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 3px 10px;
+    white-space: nowrap;
   }
 
+  .svc h3 { font-size: 18px; font-weight: 700; margin-bottom: 9px; }
   .svc p { font-size: 15.5px; color: var(--ink-soft); }
 
-  /* ---------- Approach ---------- */
-  .approach-grid {
+  /* ---------- Guide principles ---------- */
+  #guide { border-top: 1px solid var(--line); }
+
+  .guide-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(32px, 4vw, 56px) clamp(32px, 5vw, 72px);
   }
-  @media (max-width: 760px) { .approach-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .guide-grid { grid-template-columns: 1fr; } }
 
-  .principle h3 { font-size: 20px; font-weight: 600; margin-bottom: 10px; }
+  .principle h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
   .principle p { color: var(--ink-soft); font-size: 16px; }
 
-  /* ---------- Commitment band ---------- */
-  .band { background: var(--band-bg); }
-  .band .railed { border-left-color: var(--band-line); }
+  /* ---------- Band ---------- */
+  .band { position: relative; background: var(--band-bg); overflow: hidden; }
+  .band-contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .band .container { position: relative; z-index: 2; }
   .band .eyebrow { color: var(--band-soft); }
-  .band .eyebrow .deg { color: var(--band-accent); }
-  .band .eyebrow::before { background: var(--band-bg); border-color: var(--band-accent); }
+  .band .eyebrow::before { border-top-color: var(--band-accent); }
 
   .band blockquote {
-    margin: 26px 0 18px;
+    margin: 24px 0 18px;
     font-family: var(--font-display);
-    font-size: clamp(24px, 3.2vw, 36px);
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: -0.005em;
+    font-size: clamp(25px, 3.2vw, 38px);
+    font-weight: 700;
+    line-height: 1.25;
     color: var(--band-ink);
-    max-width: 24em;
+    max-width: 22em;
     text-wrap: balance;
   }
   .band blockquote .hl { color: var(--band-accent); }
 
   .band .note {
-    margin-top: 22px;
     color: var(--band-soft);
-    max-width: 36em;
+    max-width: 37em;
     font-size: 16px;
   }
 
   /* ---------- Contact ---------- */
   .contact h2 {
     font-size: clamp(32px, 4.4vw, 52px);
-    font-weight: 600;
-    letter-spacing: -0.015em;
+    font-weight: 700;
+    letter-spacing: -0.005em;
     line-height: 1.08;
-    margin: 20px 0 18px;
-    max-width: 15em;
+    margin: 18px 0 18px;
+    max-width: 14em;
   }
-
-  .contact .lede { color: var(--ink-soft); max-width: 33em; margin-bottom: 36px; }
+  .contact .lede { color: var(--ink-soft); max-width: 34em; margin-bottom: 36px; }
 
   .contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; }
 
-  .contact-email {
-    font-family: var(--font-mono);
-    font-size: 15px;
-    color: var(--ink-soft);
-  }
+  .contact-email { font-family: var(--font-mono); font-size: 15px; color: var(--ink-soft); }
   .contact-email a { color: var(--ink); border-bottom: 1px solid var(--line-strong); }
   .contact-email a:hover { border-bottom-color: var(--accent); color: var(--accent); }
 
   /* ---------- Footer ---------- */
-  footer.site {
-    border-top: 1px solid var(--line);
-    padding: 28px 0 36px;
-  }
+  footer.site { border-top: 1px solid var(--line); padding: 28px 0 36px; }
 
   .foot {
     display: flex;
@@ -399,7 +481,6 @@
     letter-spacing: 0.06em;
     color: var(--ink-faint);
   }
-
   .foot .brand-min { display: inline-flex; align-items: center; gap: 9px; color: var(--ink-soft); }
 </style>
 </head>
@@ -416,8 +497,9 @@
       <span class="wordmark">meridian <span class="code">code</span></span>
     </a>
     <nav class="nav-links" aria-label="Site">
+      <a href="#route">The route</a>
       <a href="#services">Services</a>
-      <a href="#approach">Approach</a>
+      <a href="#guide">How we guide</a>
       <a class="nav-cta" href="mailto:contact@meridiancode.net?subject=Project%20inquiry%20%E2%80%94%20Meridian%20Code">contact →</a>
     </nav>
   </div>
@@ -426,131 +508,261 @@
 <main id="top">
 
   <!-- Hero -->
-  <div class="railed hero">
-    <div>
-      <span class="eyebrow"><span class="deg">0°00′00″</span>Senior software consultancy</span>
-      <h1>Good software needs a <span class="fixed-point">fixed point</span>.</h1>
-      <p class="lede">Meridian Code is a senior software consultancy. We design, build, review, and maintain software for companies that want experienced hands on their most important systems — from first sketch to long-term support.</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="mailto:contact@meridiancode.net?subject=Project%20inquiry%20%E2%80%94%20Meridian%20Code">Start a conversation</a>
-        <a class="btn btn-ghost" href="#services">See services</a>
+  <div class="hero">
+    <svg class="hero-contours" viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none">
+      <g stroke="var(--contour)" stroke-width="1.2">
+        <path d="M700 700 C 660 520, 750 400, 920 360 C 1060 328, 1150 350, 1240 390"/>
+        <path d="M780 700 C 750 560, 830 460, 960 428 C 1070 402, 1150 418, 1240 450"/>
+        <path d="M860 700 C 845 600, 905 520, 1010 494 C 1100 472, 1170 484, 1240 508"/>
+        <path d="M-40 240 C 80 200, 190 220, 250 300 C 300 366, 280 460, 180 520 C 100 566, 20 560, -40 520"/>
+        <path d="M-40 300 C 50 270, 130 288, 175 344 C 212 392, 198 460, 128 500 C 70 532, 10 528, -40 500"/>
+      </g>
+    </svg>
+
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Guided software development</span>
+        <h1>Every project is <span class="route-w">{ a route }</span>.</h1>
+        <p class="lede">Discovery, design, build, and the long stretch after launch — Meridian Code guides software projects waypoint by waypoint, until the system stands on its own.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#route">Start at waypoint 01</a>
+          <a class="btn btn-ghost" href="mailto:contact@meridiancode.net?subject=Project%20inquiry%20%E2%80%94%20Meridian%20Code">Straight to contact</a>
+        </div>
       </div>
-    </div>
-    <div class="hero-globe" aria-hidden="true">
-      <canvas id="globe"></canvas>
-      <span class="globe-caption">PRIME MERIDIAN — REFERENCE LINE</span>
+
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 720 520" fill="none">
+          <defs>
+            <clipPath id="hero-reveal"><rect id="hero-clip-rect" x="0" y="0" width="0" height="520"/></clipPath>
+          </defs>
+          <g clip-path="url(#hero-reveal)">
+            <path d="M28 512 C 50 478, 66 458, 90 440 C 152 394, 232 382, 300 350 C 372 316, 420 300, 480 250 C 542 200, 596 158, 650 120"
+                  stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="0.1 10" stroke-linecap="round"/>
+          </g>
+          <g class="hero-wp" data-x="90">
+            <circle cx="90" cy="440" r="9" fill="var(--ground)" stroke="var(--accent)" stroke-width="3"/>
+            <text class="hero-wp-label" x="108" y="445">01 discover</text>
+          </g>
+          <g class="hero-wp" data-x="300">
+            <circle cx="300" cy="350" r="9" fill="var(--ground)" stroke="var(--accent)" stroke-width="3"/>
+            <text class="hero-wp-label" x="318" y="355">02 chart</text>
+          </g>
+          <g class="hero-wp" data-x="480">
+            <circle cx="480" cy="250" r="9" fill="var(--ground)" stroke="var(--accent)" stroke-width="3"/>
+            <text class="hero-wp-label" x="498" y="255">03 build</text>
+          </g>
+          <g class="hero-wp" data-x="650">
+            <circle cx="650" cy="120" r="9" fill="var(--accent)" stroke="var(--accent)" stroke-width="3"/>
+            <text class="hero-wp-label" x="574" y="98">04 maintain</text>
+          </g>
+        </svg>
+      </div>
     </div>
   </div>
 
-  <!-- Services -->
-  <section class="block railed" id="services">
-    <div class="section-head">
-      <span class="eyebrow"><span class="deg">01</span>Services</span>
-      <h2>Everything you need from a senior engineering partner.</h2>
-      <p>Whether you're starting from a blank page or running a system that's been in production for years, we cover the full lifecycle of your software — with one accountable partner end to end.</p>
-    </div>
+  <!-- Route -->
+  <section class="block" id="route">
+    <svg id="trail-svg" aria-hidden="true" fill="none">
+      <defs>
+        <clipPath id="trail-reveal"><rect id="trail-clip-rect" x="0" y="0" width="0" height="0"/></clipPath>
+      </defs>
+      <path id="trail-track" d="" stroke="var(--contour)" stroke-width="2.5" stroke-dasharray="0.1 10" stroke-linecap="round"/>
+      <g clip-path="url(#trail-reveal)">
+        <path id="trail-progress" d="" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="0.1 10" stroke-linecap="round"/>
+      </g>
+      <circle id="trail-tip-ring" r="7" fill="var(--accent)" opacity="0"/>
+      <circle id="trail-tip" r="5" fill="var(--accent)" opacity="0"/>
+    </svg>
 
-    <div class="svc-grid">
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="4.5" r="1.8"/>
-          <path d="M10.9 6.1 5.5 20M13.1 6.1 18.5 20"/>
-          <path d="M7.6 15.2 A 9 9 0 0 0 16.4 15.2"/>
-        </svg>
-        <h3>Architecture &amp; design</h3>
-        <p>System design and architecture input before the first line is written — so early decisions don't become expensive debt later.</p>
+    <div class="container route-inner">
+      <div class="section-head">
+        <span class="eyebrow">The route</span>
+        <h2>Four waypoints. One accountable guide.</h2>
+        <p>Every engagement follows the same route — how far we walk it together is up to you. Join at any waypoint: some clients need the full trip, some just need a guide for the hard stretch.</p>
       </div>
 
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M8 6 3 12 8 18M16 6 21 12 16 18M13.5 4.5 10.5 19.5"/>
-        </svg>
-        <h3>Senior development</h3>
-        <p>Hands-on design and build of features and systems, with the judgment to know what's worth building — and what isn't.</p>
+      <div class="wp" style="--mx: 26px">
+        <div class="wp-col"><span class="wp-marker">01</span></div>
+        <div class="wp-body">
+          <span class="wp-tag">Waypoint 01</span>
+          <h3>Discover <span class="dim">— know the terrain.</span></h3>
+          <p>Every route starts from where you actually stand. We map the current system, the constraints, and what "done" looks like — in your words, not ours. You get straight answers on build-versus-buy, technology choices, and what the trip will really take.</p>
+          <p class="wp-svc">CARRIES · <b>Technical consulting</b></p>
+        </div>
       </div>
 
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="10.5" cy="10.5" r="6"/>
-          <path d="M15 15 20 20M8 10.5 10 12.5 13.5 8.5"/>
-        </svg>
-        <h3>Code review &amp; testing</h3>
-        <p>Independent review, testing, and debugging that catches problems while they're still cheap to fix.</p>
+      <div class="wp" style="--mx: 78px">
+        <div class="wp-col"><span class="wp-marker">02</span></div>
+        <div class="wp-body">
+          <span class="wp-tag">Waypoint 02</span>
+          <h3>Chart <span class="dim">— plot the route before walking it.</span></h3>
+          <p>Architecture and design decisions made early, deliberately, and on paper — where changing course is cheap. Scope, cost, and milestones are agreed before we take a step, so the route you approve is the route we walk.</p>
+          <p class="wp-svc">CARRIES · <b>Architecture &amp; design</b></p>
+        </div>
       </div>
 
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M2.5 12.5 H7 L9.5 6.5 14 18.5 16.5 12.5 H21.5"/>
-        </svg>
-        <h3>Maintenance &amp; support</h3>
-        <p>Ongoing maintenance, debugging, and technical support that keeps the software you already rely on healthy.</p>
+      <div class="wp" style="--mx: 38px">
+        <div class="wp-col"><span class="wp-marker">03</span></div>
+        <div class="wp-body">
+          <span class="wp-tag">Waypoint 03</span>
+          <h3>Build <span class="dim">— steady pace, nothing dropped.</span></h3>
+          <p>Senior hands write, review, and test the code. You get regular reports from the trail — what's done, what's next, what changed — so you always know exactly where the project stands, without having to ask.</p>
+          <p class="wp-svc">CARRIES · <b>Senior development · Code review &amp; testing</b></p>
+        </div>
       </div>
 
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M6 2.8 H14.5 L19 7.3 V21.2 H6 Z M14.5 2.8 V7.3 H19"/>
-          <path d="M9 12 H16M9 15.5 H16"/>
-        </svg>
-        <h3>Documentation</h3>
-        <p>Documentation that keeps engineers and stakeholders reading from the same map — written as the work happens, not after.</p>
-      </div>
-
-      <div class="svc">
-        <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 5 H20 V16.5 H11.5 L7 20.5 V16.5 H4 Z"/>
-          <path d="M8.5 11 H8.6M12 11 H12.1M15.5 11 H15.6" stroke-width="2.4"/>
-        </svg>
-        <h3>Technical consulting</h3>
-        <p>Straight answers on build-versus-buy, technology choices, and roadmaps — grounded in what shipping actually takes.</p>
+      <div class="wp" style="--mx: 90px">
+        <div class="wp-col"><span class="wp-marker">04</span></div>
+        <div class="wp-body">
+          <span class="wp-tag">Waypoint 04</span>
+          <h3>Maintain <span class="dim">— launch is a waypoint, not the summit.</span></h3>
+          <p>Real systems live for years. We stay on for maintenance, debugging, and support — and we leave the trail blazed: documentation written as the work happens, so anyone can follow the route after us.</p>
+          <p class="wp-svc">CARRIES · <b>Maintenance &amp; support · Documentation</b></p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Approach -->
-  <section class="block railed" id="approach">
-    <div class="section-head">
-      <span class="eyebrow"><span class="deg">02</span>How we work</span>
-      <h2>A partnership that works the way you'd want it to.</h2>
-      <p>Straightforward, professional, and built on clear communication — from the first conversation to final delivery and beyond.</p>
-    </div>
+  <!-- Services -->
+  <section class="block" id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we carry</span>
+        <h2>Everything a project needs to make the distance.</h2>
+        <p>Six services, each tied to its place on the route. Take the full kit or just what your project is missing.</p>
+      </div>
 
-    <div class="approach-grid">
-      <div class="principle">
-        <h3>You set the direction</h3>
-        <p>Your goals, priorities, and deadlines drive the work. We plan around your business — not the other way around.</p>
+      <div class="svc-grid">
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 5 H20 V16.5 H11.5 L7 20.5 V16.5 H4 Z"/>
+              <path d="M8.5 11 H8.6M12 11 H12.1M15.5 11 H15.6" stroke-width="2.4"/>
+            </svg>
+            <span class="svc-wp">WP 01</span>
+          </div>
+          <h3>Technical consulting</h3>
+          <p>Straight answers on build-versus-buy, technology choices, and roadmaps — grounded in what shipping actually takes.</p>
+        </div>
+
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="4.5" r="1.8"/>
+              <path d="M10.9 6.1 5.5 20M13.1 6.1 18.5 20"/>
+              <path d="M7.6 15.2 A 9 9 0 0 0 16.4 15.2"/>
+            </svg>
+            <span class="svc-wp">WP 02</span>
+          </div>
+          <h3>Architecture &amp; design</h3>
+          <p>System design before the first line is written — the decisions that are cheap on paper and expensive on the trail.</p>
+        </div>
+
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 6 3 12 8 18M16 6 21 12 16 18M13.5 4.5 10.5 19.5"/>
+            </svg>
+            <span class="svc-wp">WP 03</span>
+          </div>
+          <h3>Senior development</h3>
+          <p>Hands-on design and build of features and systems, with the judgment to know what's worth building — and what isn't.</p>
+        </div>
+
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="10.5" cy="10.5" r="6"/>
+              <path d="M15 15 20 20M8 10.5 10 12.5 13.5 8.5"/>
+            </svg>
+            <span class="svc-wp">WP 03</span>
+          </div>
+          <h3>Code review &amp; testing</h3>
+          <p>Independent review, testing, and debugging that catches problems while they're still cheap to fix.</p>
+        </div>
+
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 12.5 H7 L9.5 6.5 14 18.5 16.5 12.5 H21.5"/>
+            </svg>
+            <span class="svc-wp">WP 04</span>
+          </div>
+          <h3>Maintenance &amp; support</h3>
+          <p>Ongoing care that keeps the software you already rely on healthy — for the long stretch after launch.</p>
+        </div>
+
+        <div class="svc">
+          <div class="svc-top">
+            <svg width="26" height="26" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2.8 H14.5 L19 7.3 V21.2 H6 Z M14.5 2.8 V7.3 H19"/>
+              <path d="M9 12 H16M9 15.5 H16"/>
+            </svg>
+            <span class="svc-wp">WP 01–04</span>
+          </div>
+          <h3>Documentation</h3>
+          <p>The blazes we leave along the way: docs written as the work happens, so anyone can follow the route after us.</p>
+        </div>
       </div>
-      <div class="principle">
-        <h3>We bring the expertise</h3>
-        <p>Years of senior engineering experience mean proven methods, the right tools, and work done properly the first time.</p>
+    </div>
+  </section>
+
+  <!-- How we guide -->
+  <section class="block" id="guide">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How we guide</span>
+        <h2>A guide's promises.</h2>
+        <p>Straightforward, professional, and built on clear communication — from the trailhead to the end of the route.</p>
       </div>
-      <div class="principle">
-        <h3>No surprises on scope or cost</h3>
-        <p>You always know what's being built and what it costs. Any change is discussed and agreed before the work begins.</p>
-      </div>
-      <div class="principle">
-        <h3>Communication you can count on</h3>
-        <p>Regular updates, clear documentation, and honest answers. You'll never have to wonder where your project stands.</p>
+
+      <div class="guide-grid">
+        <div class="principle">
+          <h3>You choose the destination</h3>
+          <p>Your goals, priorities, and deadlines set the route. We plan around your business — not the other way around.</p>
+        </div>
+        <div class="principle">
+          <h3>We know the terrain</h3>
+          <p>Years of senior engineering experience mean proven methods, the right tools, and work done properly the first time.</p>
+        </div>
+        <div class="principle">
+          <h3>No surprise detours</h3>
+          <p>You always know what's being built and what it costs. Any change of course is discussed and agreed before we take it.</p>
+        </div>
+        <div class="principle">
+          <h3>You always know where you are</h3>
+          <p>Regular updates, clear documentation, and honest answers. You'll never have to wonder where your project stands.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Commitment band -->
   <section class="band">
-    <div class="railed block">
-      <span class="eyebrow"><span class="deg">03</span>Our commitment</span>
-      <blockquote>Skill, care, and diligence — <span class="hl">in every project we take on</span>.</blockquote>
-      <p class="note">We keep our client list small on purpose. Every engagement gets senior attention from start to finish, and every line of code we ship carries our name.</p>
+    <svg class="band-contours" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none">
+      <g stroke="var(--band-contour)" stroke-width="1.2">
+        <path d="M800 460 C 780 340, 860 260, 990 236 C 1090 218, 1160 232, 1240 262"/>
+        <path d="M870 460 C 858 372, 918 310, 1020 290 C 1100 275, 1170 286, 1240 310"/>
+        <path d="M-40 120 C 60 90, 150 104, 200 160 C 242 208, 226 280, 150 320 C 84 354, 16 348, -40 320"/>
+      </g>
+    </svg>
+    <div class="container block">
+      <span class="eyebrow">Our commitment</span>
+      <blockquote>Small parties travel best — <span class="hl">every client gets our full attention</span>.</blockquote>
+      <p class="note">We keep our client list short on purpose. Every engagement gets senior attention from the trailhead to the end of the route, and every line of code we ship carries our name.</p>
     </div>
   </section>
 
   <!-- Contact -->
-  <section class="block railed contact" id="contact">
-    <span class="eyebrow"><span class="deg">04</span>Contact</span>
-    <h2>Let's talk about your project.</h2>
-    <p class="lede">Whether you're planning something new, need extra senior capacity, or have a system that needs attention — a short email is all it takes to start. You'll get a considered reply, not a sales pitch.</p>
-    <div class="contact-row">
-      <a class="btn btn-primary" href="mailto:contact@meridiancode.net?subject=Project%20inquiry%20%E2%80%94%20Meridian%20Code">Email Meridian Code</a>
-      <span class="contact-email"><a href="mailto:contact@meridiancode.net">contact@meridiancode.net</a></span>
+  <section class="block contact" id="contact">
+    <div class="container">
+      <span class="eyebrow">Trailhead</span>
+      <h2>Ready to set out?</h2>
+      <p class="lede">Whether you're planning something new, need extra senior capacity, or have a system that's wandered off course — a short email is all it takes. You'll get a considered reply, not a sales pitch.</p>
+      <div class="contact-row">
+        <a class="btn btn-primary" href="mailto:contact@meridiancode.net?subject=Project%20inquiry%20%E2%80%94%20Meridian%20Code">Start at waypoint 01</a>
+        <span class="contact-email"><a href="mailto:contact@meridiancode.net">contact@meridiancode.net</a></span>
+      </div>
     </div>
   </section>
 </main>
@@ -565,100 +777,168 @@
       </svg>
       MERIDIAN CODE LLC
     </span>
-    <span>© 2026 — SOFTWARE, MEASURED FROM ZERO</span>
+    <span>© 2026 — GUIDED THE WHOLE WAY</span>
   </div>
 </footer>
 
 <script>
-  (function () {
-    var canvas = document.getElementById('globe');
-    if (!canvas || !canvas.getContext) return;
-    var ctx = canvas.getContext('2d');
-    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function () {
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var MERIDIANS = 12;
-    var TILT = -0.34;           // radians
-    var SPEED = 0.00012;        // radians per ms
+  /* ---------- Hero route: draws itself on load ---------- */
+  (function heroReveal() {
+    var rect = document.getElementById('hero-clip-rect');
+    if (!rect) return;
+    var dots = [].slice.call(document.querySelectorAll('.hero-wp'));
+    var FULL = 720;
 
-    function draw(t) {
-      var rect = canvas.getBoundingClientRect();
-      if (rect.width < 10) return;
-      var dpr = Math.min(window.devicePixelRatio || 1, 2);
-      var w = Math.round(rect.width * dpr);
-      var h = Math.round(rect.height * dpr);
-      if (canvas.width !== w || canvas.height !== h) {
-        canvas.width = w;
-        canvas.height = h;
-      }
-
-      var styles = getComputedStyle(document.documentElement);
-      var lineColor = styles.getPropertyValue('--globe-line').trim() || 'rgba(22,35,63,0.16)';
-      var accent = styles.getPropertyValue('--accent').trim() || '#2C5BE3';
-
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.clearRect(0, 0, w, h);
-      ctx.translate(w / 2, h / 2);
-      ctx.scale(dpr, dpr);
-      ctx.rotate(TILT);
-
-      var R = (Math.min(rect.width, rect.height) / 2) * 0.86;
-
-      // Outer disc
-      ctx.beginPath();
-      ctx.arc(0, 0, R, 0, Math.PI * 2);
-      ctx.strokeStyle = lineColor;
-      ctx.lineWidth = 1;
-      ctx.stroke();
-
-      // Parallels (latitude chords)
-      var lats = [-60, -30, 0, 30, 60];
-      for (var i = 0; i < lats.length; i++) {
-        var phi = lats[i] * Math.PI / 180;
-        var y = R * Math.sin(phi);
-        var half = R * Math.cos(phi);
-        ctx.beginPath();
-        ctx.moveTo(-half, y);
-        ctx.lineTo(half, y);
-        ctx.strokeStyle = lineColor;
-        ctx.lineWidth = 0.75;
-        ctx.stroke();
-      }
-
-      // Meridians — one highlighted as the prime meridian
-      var rot = t * SPEED;
-      for (var m = 0; m < MERIDIANS; m++) {
-        var phase = rot + (m * Math.PI) / MERIDIANS;
-        var rx = Math.abs(Math.sin(phase)) * R;
-        var prime = (m === 0);
-        ctx.beginPath();
-        ctx.ellipse(0, 0, Math.max(rx, 0.4), R, 0, 0, Math.PI * 2);
-        ctx.strokeStyle = prime ? accent : lineColor;
-        ctx.lineWidth = prime ? 1.6 : 1;
-        ctx.stroke();
-      }
-
-      // Center axis tick
-      ctx.beginPath();
-      ctx.moveTo(0, -R - 8);
-      ctx.lineTo(0, -R + 6);
-      ctx.moveTo(0, R - 6);
-      ctx.lineTo(0, R + 8);
-      ctx.strokeStyle = accent;
-      ctx.lineWidth = 1.4;
-      ctx.stroke();
+    function lightDots(w) {
+      dots.forEach(function (d) {
+        if (w >= parseFloat(d.getAttribute('data-x'))) d.classList.add('on');
+      });
     }
 
     if (reduceMotion) {
-      draw(5200);
-      window.addEventListener('resize', function () { draw(5200); });
-    } else {
-      function loop(t) {
-        draw(t);
-        requestAnimationFrame(loop);
+      rect.setAttribute('width', FULL);
+      lightDots(FULL);
+      return;
+    }
+
+    var DURATION = 2000, DELAY = 350, start = null;
+    function ease(t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; }
+    function frame(now) {
+      if (start === null) start = now + DELAY;
+      var t = Math.min(Math.max((now - start) / DURATION, 0), 1);
+      var w = ease(t) * FULL;
+      rect.setAttribute('width', w);
+      lightDots(w);
+      if (t < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  /* ---------- Route trail: draws in as you scroll ---------- */
+  (function routeTrail() {
+    var section = document.getElementById('route');
+    var svg = document.getElementById('trail-svg');
+    var track = document.getElementById('trail-track');
+    var prog = document.getElementById('trail-progress');
+    var clipRect = document.getElementById('trail-clip-rect');
+    var tip = document.getElementById('trail-tip');
+    var tipRing = document.getElementById('trail-tip-ring');
+    var blocks = [].slice.call(section.querySelectorAll('.wp'));
+    if (!svg || !blocks.length) return;
+
+    var samples = [];      // [{y, x}] sampled along the path, monotonic in y
+    var markerYs = [];     // y of each waypoint marker center
+    var sectionH = 0;
+    var drawn = 0;         // current animated clip height
+    var target = 0;        // target clip height from scroll
+
+    function build() {
+      var srect = section.getBoundingClientRect();
+      var W = Math.max(section.clientWidth, 1);
+      sectionH = Math.max(section.clientHeight, 1);
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + sectionH);
+      svg.setAttribute('width', W);
+      svg.setAttribute('height', sectionH);
+
+      var pts = [];
+      markerYs = [];
+      blocks.forEach(function (b) {
+        var m = b.querySelector('.wp-marker').getBoundingClientRect();
+        var x = m.left - srect.left + m.width / 2;
+        var y = m.top - srect.top + m.height / 2;
+        pts.push({ x: x, y: y });
+        markerYs.push(y);
+      });
+
+      // Enter from above the first marker
+      var startY = Math.max(pts[0].y - 90, 0);
+      pts.unshift({ x: pts[0].x, y: startY });
+
+      var d = 'M ' + pts[0].x + ' ' + pts[0].y;
+      for (var i = 1; i < pts.length; i++) {
+        var a = pts[i - 1], b = pts[i];
+        var dy = (b.y - a.y) * 0.5;
+        d += ' C ' + a.x + ' ' + (a.y + dy) + ', ' + b.x + ' ' + (b.y - dy) + ', ' + b.x + ' ' + b.y;
       }
+      track.setAttribute('d', d);
+      prog.setAttribute('d', d);
+
+      clipRect.setAttribute('width', W);
+
+      // Sample the path so the tip dot can ride the drawn end (path is monotonic in y)
+      samples = [];
+      var len = prog.getTotalLength();
+      var step = Math.max(len / 260, 2);
+      for (var l = 0; l <= len; l += step) {
+        var p = prog.getPointAtLength(l);
+        samples.push({ x: p.x, y: p.y });
+      }
+      var end = prog.getPointAtLength(len);
+      samples.push({ x: end.x, y: end.y });
+    }
+
+    function targetFromScroll() {
+      var srect = section.getBoundingClientRect();
+      var lineY = window.innerHeight * 0.6;   // "you are here" sits just below mid-viewport
+      return Math.min(Math.max(lineY - srect.top, 0), sectionH);
+    }
+
+    function render(h) {
+      clipRect.setAttribute('height', h);
+
+      var firstY = samples.length ? samples[0].y : 0;
+      var lastY = samples.length ? samples[samples.length - 1].y : 0;
+      var visible = h > firstY + 2 && h < lastY - 2;
+      if (visible) {
+        var pt = samples[0];
+        for (var i = 0; i < samples.length; i++) {
+          if (samples[i].y <= h) pt = samples[i]; else break;
+        }
+        tip.setAttribute('cx', pt.x); tip.setAttribute('cy', pt.y);
+        tipRing.setAttribute('cx', pt.x); tipRing.setAttribute('cy', pt.y);
+        tip.setAttribute('opacity', 1);
+        tipRing.classList.add('pulsing');
+      } else {
+        tip.setAttribute('opacity', 0);
+        tipRing.classList.remove('pulsing');
+      }
+
+      blocks.forEach(function (b, i) {
+        b.classList.toggle('reached', markerYs[i] <= h);
+      });
+    }
+
+    if (reduceMotion) {
+      build();
+      render(sectionH);
+      window.addEventListener('resize', function () { build(); render(sectionH); });
+      return;
+    }
+
+    build();
+    drawn = target = targetFromScroll();
+    render(drawn);
+
+    function loop() {
+      target = targetFromScroll();
+      drawn += (target - drawn) * 0.14;
+      if (Math.abs(target - drawn) < 0.5) drawn = target;
+      render(drawn);
       requestAnimationFrame(loop);
     }
+    requestAnimationFrame(loop);
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(build, 150);
+    });
+    window.addEventListener('load', build);
   })();
+})();
 </script>
 </body>
 </html>
